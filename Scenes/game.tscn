@@ -1,36 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://blfv85sm4jgk4"]
+[gd_scene load_steps=4 format=3 uid="uid://blfv85sm4jgk4"]
 
 [ext_resource type="PackedScene" uid="uid://vxs5fq5i3rf" path="res://Scenes/Maps/mapa_1.tscn" id="1_1l0tm"]
-[ext_resource type="PackedScene" uid="uid://cpn5g174tugkr" path="res://Scenes/Characters/archer.tscn" id="1_wrm1d"]
-[ext_resource type="Script" uid="uid://cc5pqrnup88c" path="res://Scripts/Components/player_input.gd" id="2_3dryh"]
-[ext_resource type="Texture2D" uid="uid://bao22vpx5s6oc" path="res://kenney_scribble-dungeons/PNG/Double (128px)/barrel.png" id="4_i6g32"]
-[ext_resource type="PackedScene" uid="uid://dbers6p7oosps" path="res://Scenes/health_component.tscn" id="4_wowpa"]
-[ext_resource type="PackedScene" uid="uid://bhwwjrhlmt6d3" path="res://Scenes/Characters/lancer.tscn" id="7_1l0tm"]
-[ext_resource type="Script" uid="uid://bjgmmw3u5wggx" path="res://Scripts/Components/ai_component.gd" id="7_v158k"]
+[ext_resource type="Script" uid="uid://buafaaumm7axd" path="res://Scripts/game.gd" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://baqhixvwtsorf" path="res://Scenes/main_screen.tscn" id="3_wrm1d"]
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_qxrlw")
 
 [node name="Mapa_1" parent="." instance=ExtResource("1_1l0tm")]
+position = Vector2(2288, 312)
 
-[node name="Archer" parent="." instance=ExtResource("1_wrm1d")]
-position = Vector2(-936, 3040)
-
-[node name="Camera2D" type="Camera2D" parent="Archer"]
-zoom = Vector2(0.5, 0.5)
-
-[node name="PlayerInput" type="Node" parent="Archer"]
-script = ExtResource("2_3dryh")
-metadata/_custom_type_script = "uid://cc5pqrnup88c"
-
-[node name="TargetDummy" type="Sprite2D" parent="."]
-position = Vector2(330, 275)
-texture = ExtResource("4_i6g32")
-
-[node name="HealthComponent" parent="TargetDummy" instance=ExtResource("4_wowpa")]
-
-[node name="Lancer" parent="." instance=ExtResource("7_1l0tm")]
-position = Vector2(208, 3312)
-
-[node name="AI" type="Node2D" parent="Lancer"]
-script = ExtResource("7_v158k")
-metadata/_custom_type_script = "uid://bjgmmw3u5wggx"
+[node name="MainScreen" parent="." instance=ExtResource("3_wrm1d")]

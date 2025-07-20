@@ -10,8 +10,6 @@ func _ready() -> void:
 	if not (get_parent() is CharacterBody2D):
 			push_error("¡El padre de MovableComponent debe ser un CharacterBody2D!")
 			queue_free()
-	
-	get_parent().is_human_player = true
 
 
 func _physics_process(delta: float) -> void:

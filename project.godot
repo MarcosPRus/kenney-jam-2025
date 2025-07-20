@@ -13,7 +13,8 @@ config_version=5
 config/name="Kenney Jam 2025"
 run/main_scene="uid://blfv85sm4jgk4"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://d0ivh7bxk522j"
+config/icon="uid://d2gwx23syqrma"
 
 [autoload]
 
