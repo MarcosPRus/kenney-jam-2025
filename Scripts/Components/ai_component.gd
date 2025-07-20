@@ -1,24 +1,24 @@
 extends Node2D
 class_name AI
 
-@onready var parent:CharacterBody2D = get_parent() as CharacterBody2D
+@onready var parent:Character = get_parent() as Character
 @onready var nav_agent:NavigationAgent2D = NavigationAgent2D.new()
 
-var target:CharacterBody2D
+var target:Character
 
 var movement_dir:Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
 	if not parent:
-		push_error("¡El padre de AI debe ser un CharacterBody2D!")
+		push_error("¡El padre de AI debe ser un Character!")
 		queue_free()
 	
-	if not (parent is CharacterBody2D):
-		push_error("¡El padre de AI debe ser un CharacterBody2D!")
+	if not (parent is Character):
+		push_error("¡El padre de AI debe ser un Character!")
 		queue_free()
 	
-	AiOverseer.ai_nodes.append(self)
+	AiOverseer.characters.append(parent)
 	
 	tree_exiting.connect(_on_tree_exiting)
 	
@@ -32,13 +32,18 @@ func _physics_process(delta: float) -> void:
 		var direction = parent.global_position.direction_to(next_path_pos)
 		
 		nav_agent.velocity = direction
+		
+		parent.look_at(target.global_position)
 	else:
-		target = AiOverseer.get_target(self)
+		target = AiOverseer.get_target(parent)
+	
+	get_parent().left_click()
 
 
 func setup_nav_agent() -> void:
 	nav_agent.path_desired_distance = 10.0
 	nav_agent.target_desired_distance = 10.0
+	nav_agent.radius = 90.0
 	nav_agent.debug_enabled = true
 	nav_agent.avoidance_enabled = true
 	nav_agent.velocity_computed.connect(_on_nav_agent_2d_velocity_computed)
@@ -56,4 +61,4 @@ func _on_nav_agent_2d_velocity_computed(safe_velocity) -> void:
 
 
 func _on_tree_exiting() -> void:
-	AiOverseer.ai_nodes.erase(self)
+	AiOverseer.characters.erase(parent)

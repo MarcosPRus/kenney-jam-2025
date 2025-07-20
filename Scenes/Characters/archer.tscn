@@ -13,6 +13,9 @@
 script = ExtResource("2_0cihs")
 character_type = 0
 max_health = 100
+base_speed = 512.0
+dash_dist = 0.1
+dash_cooldown = 1.0
 metadata/_custom_type_script = "uid://ipn38vq1ra18"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22a32"]

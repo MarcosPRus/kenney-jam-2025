@@ -3,6 +3,7 @@ class_name MovementComponent
 
 @export var base_speed:float = 512.0
 var speed:float
+var speed_multiplier:float = 1.0
 
 @export var dash_dist:float = 0.1
 @export var dash_cooldown:float = 1.0
@@ -11,6 +12,16 @@ var can_dash:bool = true
 @onready var dash_timer:Timer = Timer.new()
 @onready var dash_cooldown_timer:Timer = Timer.new()
 
+
+func set_base_speed(value:float) -> void:
+	base_speed = value
+	speed = base_speed
+
+func set_dash_dist(value:float) -> void:
+	dash_dist = value
+
+func set_dash_cooldown(value:float) -> void:
+	dash_cooldown = value
 
 func _ready() -> void:
 	if not (get_parent() is CharacterBody2D):
@@ -33,7 +44,7 @@ func _ready() -> void:
 
 
 func move(direction:Vector2) -> void:
-	get_parent().velocity = direction.normalized() * speed
+	get_parent().velocity = direction.normalized() * speed * speed_multiplier
 	get_parent().move_and_slide()
 
 
