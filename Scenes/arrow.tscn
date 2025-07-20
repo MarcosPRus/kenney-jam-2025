@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://kq3dmr3gdkhi"]
+
+[ext_resource type="Script" uid="uid://be4ckdqen2yun" path="res://Scripts/arrow.gd" id="1_h5x2m"]
+[ext_resource type="Texture2D" uid="uid://b0o3mlbhsv88i" path="res://kenney_scribble-dungeons/PNG/Double (128px)/Items/weapon_arrow.png" id="2_40cdi"]
+[ext_resource type="PackedScene" uid="uid://cy70ed7exo8h1" path="res://Scenes/hit_component.tscn" id="3_40cdi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40cdi"]
+size = Vector2(22, 26)
+
+[node name="Arrow" type="Sprite2D"]
+texture = ExtResource("2_40cdi")
+script = ExtResource("1_h5x2m")
+
+[node name="HitComponent" parent="." instance=ExtResource("3_40cdi")]
+position = Vector2(-1.48619e-06, -34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+position = Vector2(1.48619e-06, 2)
+shape = SubResource("RectangleShape2D_40cdi")

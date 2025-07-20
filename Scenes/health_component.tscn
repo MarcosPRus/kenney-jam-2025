@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbers6p7oosps"]
+
+[ext_resource type="Script" uid="uid://dj553kowib0m3" path="res://Scripts/Components/health_component.gd" id="1_yf5fb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ohbd"]
+radius = 39.0128
+
+[node name="HealthComponent" type="Area2D" groups=["HurtBox"]]
+script = ExtResource("1_yf5fb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6ohbd")
