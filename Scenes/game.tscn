@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://blfv85sm4jgk4"]
+[gd_scene load_steps=4 format=3 uid="uid://blfv85sm4jgk4"]
 
 [ext_resource type="PackedScene" uid="uid://vxs5fq5i3rf" path="res://Scenes/Maps/mapa_1.tscn" id="1_1l0tm"]
 [ext_resource type="Script" uid="uid://buafaaumm7axd" path="res://Scripts/game.gd" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://baqhixvwtsorf" path="res://Scenes/main_screen.tscn" id="3_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://bhwwjrhlmt6d3" path="res://Scenes/Characters/lancer.tscn" id="4_3dryh"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_qxrlw")
@@ -12,5 +11,3 @@ script = ExtResource("1_qxrlw")
 position = Vector2(0, 1928)
 
 [node name="MainScreen" parent="." instance=ExtResource("3_wrm1d")]
-
-[node name="Lancer" parent="." instance=ExtResource("4_3dryh")]

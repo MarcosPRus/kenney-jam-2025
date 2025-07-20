@@ -12,6 +12,12 @@ layout_mode = 3
 anchors_preset = 0
 theme = SubResource("Theme_nn74e")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 700.0
+color = Color(1, 1, 1, 0.780392)
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_right = 1152.0
