@@ -1,9 +1,63 @@
-[gd_scene format=3 uid="uid://baqhixvwtsorf"]
+[gd_scene load_steps=6 format=3 uid="uid://baqhixvwtsorf"]
+
+[ext_resource type="FontFile" uid="uid://d33chtmyrjrt8" path="res://Rubik_Scribble/RubikScribble-Regular.ttf" id="1_p8vjv"]
+[ext_resource type="Texture2D" uid="uid://dp16noq58lbl3" path="res://kenney_scribble-dungeons/PNG/Double (128px)/Items/weapon_bow_arrow.png" id="2_b1vw1"]
+[ext_resource type="Texture2D" uid="uid://hatnrek16yoh" path="res://kenney_scribble-dungeons/PNG/Double (128px)/Items/weapon_longsword.png" id="3_y1wm0"]
+[ext_resource type="Texture2D" uid="uid://ctdjwm52d611x" path="res://kenney_scribble-dungeons/PNG/Double (128px)/Items/weapon_pole.png" id="4_qm5cq"]
+
+[sub_resource type="Theme" id="Theme_nn74e"]
 
 [node name="MainScreen" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+theme = SubResource("Theme_nn74e")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("1_p8vjv")
+theme_override_font_sizes/font_size = 128
+text = "SCRIBBLE WARS"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_top = 152.0
+offset_right = 1152.0
+offset_bottom = 304.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_p8vjv")
+theme_override_font_sizes/font_size = 64
+text = "Select a class to play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArcherButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 376.0
+offset_right = 256.0
+offset_bottom = 512.0
+icon = ExtResource("2_b1vw1")
+
+[node name="SoldierButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 376.0
+offset_right = 512.0
+offset_bottom = 512.0
+icon = ExtResource("3_y1wm0")
+
+[node name="LancerButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 376.0
+offset_right = 768.0
+offset_bottom = 512.0
+icon = ExtResource("4_qm5cq")

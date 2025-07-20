@@ -18,7 +18,6 @@ func _ready() -> void:
 		var ai_component:AI = AI.new()
 		add_child(ai_component)
 	
-	$AnimationPlayer.animation_changed.connect(_on_animation_player_animation_changed)
 	$HealthComponent.died.connect(die)
 	$HealthComponent.set_max_health(character_stats.max_health)
 	$MovementComponent.set_base_speed(character_stats.base_speed)
@@ -37,10 +36,3 @@ func dash() -> void:
 
 func die() -> void:
 	queue_free()
-
-# TODO: Arreglar esto
-func _on_animation_player_animation_changed(old_name:StringName, new_name:StringName) -> void:
-	if new_name != "idle":
-		$MovementComponent.speed_multiplier = 0.5
-	else:
-		$MovementComponent.speed_multiplier = 1.0

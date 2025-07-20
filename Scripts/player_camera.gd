@@ -4,4 +4,4 @@ class_name PlayerCamera
 
 func _ready() -> void:
 	position_smoothing_enabled = true
-	zoom = Vector2(0.5, 0.5)
+	zoom = Vector2(0.25, 0.25)

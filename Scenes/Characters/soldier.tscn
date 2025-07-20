@@ -13,10 +13,11 @@
 [sub_resource type="Resource" id="Resource_fml5x"]
 script = ExtResource("2_d6u2n")
 character_type = 1
+attack = 10
 max_health = 150
-base_speed = 256.0
-dash_dist = 0.1
-dash_cooldown = 1.0
+base_speed = 300.0
+dash_dist = 0.2
+dash_cooldown = 1.5
 metadata/_custom_type_script = "uid://ipn38vq1ra18"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xedya"]
@@ -33,7 +34,7 @@ length = 0.001
 
 [sub_resource type="Animation" id="Animation_jhg76"]
 resource_name = "attack1"
-length = 0.5
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -41,8 +42,8 @@ tracks/0/path = NodePath("RightHand:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(0.4, 1, 4),
 "update": 0,
 "values": [Vector2(21, 59), Vector2(78, 2.38419e-07), Vector2(-7, -66)]
 }
@@ -53,7 +54,7 @@ tracks/1/path = NodePath("RightHand:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
+"times": PackedFloat32Array(0, 0.15, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [1.46713, 0.0277295, -1.5708]
@@ -73,7 +74,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_001jn"]
 resource_name = "attack2"
-length = 0.5
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -81,8 +82,8 @@ tracks/0/path = NodePath("RightHand:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(0.4, 1, 4),
 "update": 0,
 "values": [Vector2(-7, -66), Vector2(78, 2.38419e-07), Vector2(21, 59)]
 }
@@ -93,7 +94,7 @@ tracks/1/path = NodePath("RightHand:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
+"times": PackedFloat32Array(0, 0.15, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [-1.5708, 0.0277295, 1.46713]
@@ -173,8 +174,8 @@ shape = SubResource("RectangleShape2D_xedya")
 
 [node name="RightHand" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(21, 59)
-rotation = 1.46713
+position = Vector2(-7, -66)
+rotation = -1.5708
 texture = ExtResource("3_001jn")
 
 [node name="Sword" type="Sprite2D" parent="RightHand"]
@@ -184,7 +185,6 @@ rotation = 1.54731
 texture = ExtResource("5_xhcvx")
 
 [node name="HitComponent" parent="RightHand/Sword" instance=ExtResource("6_gbrgs")]
-process_mode = 4
 position = Vector2(-0.915622, -39.9068)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightHand/Sword/HitComponent"]

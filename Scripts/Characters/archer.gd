@@ -14,6 +14,7 @@ func left_click() -> void:
 	
 	if $AnimationPlayer.current_animation != "attack":
 		$AnimationPlayer.play("attack")
+		$MovementComponent.speed_multiplier = 0.5
 		
 		var arrow = ARROW_SCENE.instantiate()
 		var arrow_direction = (target_position - self.global_position).normalized()
@@ -26,6 +27,7 @@ func left_click() -> void:
 		add_sibling(arrow)
 		
 		$AnimationPlayer.play("idle")
+		$MovementComponent.speed_multiplier = 1.0
 
 func right_click() -> void:
 	pass

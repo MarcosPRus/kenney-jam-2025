@@ -12,9 +12,10 @@
 [sub_resource type="Resource" id="Resource_ytvfx"]
 script = ExtResource("2_0cihs")
 character_type = 0
-max_health = 100
-base_speed = 512.0
-dash_dist = 0.1
+attack = 5
+max_health = 75
+base_speed = 500.0
+dash_dist = 0.3
 dash_cooldown = 1.0
 metadata/_custom_type_script = "uid://ipn38vq1ra18"
 

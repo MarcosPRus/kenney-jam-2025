@@ -18,10 +18,10 @@ func set_base_speed(value:float) -> void:
 	speed = base_speed
 
 func set_dash_dist(value:float) -> void:
-	dash_dist = value
+	dash_timer.wait_time = value
 
 func set_dash_cooldown(value:float) -> void:
-	dash_cooldown = value
+	dash_cooldown_timer.wait_time = value
 
 func _ready() -> void:
 	if not (get_parent() is CharacterBody2D):

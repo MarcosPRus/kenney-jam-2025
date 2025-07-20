@@ -20,9 +20,17 @@ config/icon="uid://d2gwx23syqrma"
 
 AiOverseer="*res://Scripts/ai_overseer.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [global_group]
 
 HurtBox="Area2Ds that can be \"hurt\" (Bodies, destructible walls, power shards, etc)"
+
+[gui]
+
+theme/custom_font="uid://d33chtmyrjrt8"
 
 [input]
 
