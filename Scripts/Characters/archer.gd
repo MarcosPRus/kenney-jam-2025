@@ -9,15 +9,16 @@ func left_click() -> void:
 	if is_human_player:
 		target_position = get_global_mouse_position()
 	else:
-		if $AI.target:
-			target_position = $AI.target.global_position
+		if $AI:
+			if $AI.target:
+				target_position = $AI.target.global_position
 	
 	if $AnimationPlayer.current_animation != "attack":
 		$AnimationPlayer.play("attack")
 		$MovementComponent.speed_multiplier = 0.5
 		
 		var arrow = ARROW_SCENE.instantiate()
-		var arrow_direction = (target_position - self.global_position).normalized()
+		var arrow_direction = self.global_position.direction_to(target_position)
 		arrow.direction = arrow_direction
 		arrow.rotation = self.rotation + PI/2
 		

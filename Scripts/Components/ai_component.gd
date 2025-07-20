@@ -27,24 +27,39 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if target:
-		make_path(target.global_position)
+		# Move the Character towards the target
+		if parent.name == "Archer":
+			var direction_from_target = target.global_position.direction_to(parent.global_position)
+			var standoff_position = target.global_position + direction_from_target * 1024
+			make_path(standoff_position)
+		else:
+			make_path(target.global_position)
 		var next_path_pos = nav_agent.get_next_path_position()
 		var direction = parent.global_position.direction_to(next_path_pos)
-		
 		nav_agent.velocity = direction
 		
+		# Always look at the target
 		parent.look_at(target.global_position)
+		
+		# Soldier and lancer attack only when the enemy is in range, Archer always attacks
+		if parent.name == "Soldier":
+			if (target.global_position - parent.global_position).length() <= 180:
+				parent.left_click()
+		elif parent.name == "Lancer":
+			if (target.global_position - parent.global_position).length() <= 256:
+				parent.left_click()
+		else:
+			parent.left_click()
+		
 	else:
 		target = AiOverseer.get_target(parent)
-	
-	get_parent().left_click()
 
 
 func setup_nav_agent() -> void:
 	nav_agent.path_desired_distance = 10.0
 	nav_agent.target_desired_distance = 10.0
 	nav_agent.radius = 90.0
-	nav_agent.debug_enabled = true
+	nav_agent.debug_enabled = false
 	nav_agent.avoidance_enabled = true
 	nav_agent.velocity_computed.connect(_on_nav_agent_2d_velocity_computed)
 	nav_agent.path_postprocessing = NavigationPathQueryParameters2D.PATH_POSTPROCESSING_EDGECENTERED

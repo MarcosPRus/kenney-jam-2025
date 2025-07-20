@@ -14,3 +14,7 @@ func _process(delta: float) -> void:
 
 func on_hit() -> void:
 	queue_free()
+
+
+func _on_fall_timer_timeout() -> void:
+	queue_free()

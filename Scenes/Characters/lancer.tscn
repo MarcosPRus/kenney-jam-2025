@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://ipn38vq1ra18"
 size = Vector2(25.4543, 39.5955)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22a32"]
-radius = 37.0
+radius = 35.0
 
 [sub_resource type="Animation" id="Animation_fhmuk"]
 length = 0.001

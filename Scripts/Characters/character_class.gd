@@ -16,6 +16,7 @@ func _ready() -> void:
 		add_child(player_camera)
 	else:
 		var ai_component:AI = AI.new()
+		ai_component.name = "AI"
 		add_child(ai_component)
 	
 	$HealthComponent.died.connect(die)
@@ -35,4 +36,7 @@ func dash() -> void:
 	$MovementComponent.dash()
 
 func die() -> void:
-	queue_free()
+	if is_human_player:
+		get_tree().reload_current_scene()
+	else:
+		queue_free()

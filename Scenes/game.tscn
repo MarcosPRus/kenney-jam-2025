@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://blfv85sm4jgk4"]
+[gd_scene load_steps=5 format=3 uid="uid://blfv85sm4jgk4"]
 
 [ext_resource type="PackedScene" uid="uid://vxs5fq5i3rf" path="res://Scenes/Maps/mapa_1.tscn" id="1_1l0tm"]
 [ext_resource type="Script" uid="uid://buafaaumm7axd" path="res://Scripts/game.gd" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://baqhixvwtsorf" path="res://Scenes/main_screen.tscn" id="3_wrm1d"]
+[ext_resource type="Script" uid="uid://bpkfkecxg55w3" path="res://Scripts/spawn_point.gd" id="4_3dryh"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_qxrlw")
@@ -11,3 +12,18 @@ script = ExtResource("1_qxrlw")
 position = Vector2(0, 1928)
 
 [node name="MainScreen" parent="." instance=ExtResource("3_wrm1d")]
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(-2832, -232)
+script = ExtResource("4_3dryh")
+metadata/_custom_type_script = "uid://bpkfkecxg55w3"
+
+[node name="SpawnPoint2" type="Node2D" parent="."]
+position = Vector2(1776, 2664)
+script = ExtResource("4_3dryh")
+metadata/_custom_type_script = "uid://bpkfkecxg55w3"
+
+[node name="SpawnPoint3" type="Node2D" parent="."]
+position = Vector2(-2320, 4360)
+script = ExtResource("4_3dryh")
+metadata/_custom_type_script = "uid://bpkfkecxg55w3"
